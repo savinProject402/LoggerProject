@@ -26,7 +26,7 @@ namespace LoggerProject
             var result = WriteErrorsEnum.LogEnum.Error + message;
             if (ex != null)
             {
-                result += " stacktrace: " + ex.StackTrace;
+                result += "\t trase: \n " + ex.StackTrace;
             }
             MessageRead.AppendLine(result);
             Console.WriteLine(result);
@@ -41,7 +41,7 @@ namespace LoggerProject
         }
         public void Log(WriteErrorsEnum.LogEnum LevelLog, string message)
         {
-            var result = LevelLog + "Message: " + message;
+            var result = LevelLog + "\t Message: " + message;
             MessageRead.AppendLine(result);
             Console.WriteLine(result);
         }

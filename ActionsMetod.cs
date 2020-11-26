@@ -15,16 +15,16 @@ namespace LoggerProject
         }
         public void First()
         {
-            _Logger.LogInfo("Start method: " + nameof(First));
+            _Logger.LogInfo("\t Start method: " + nameof(First));
 
         }
         public void Second()
         {
-            _Logger.LogWarning("Skip logic in method: " + nameof(Second));
+            _Logger.LogWarning("\t Skip logic in method: " + nameof(Second));
         }
         public void Trird()
         {
-            throw new Exception("I broke a toilet ");
+            throw new Exception(" \f I broke a toilet ");
         }
     }
 }

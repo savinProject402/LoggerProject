@@ -23,9 +23,22 @@ namespace LoggerProject
             {
                 try
                 {
-                    actionsmetod.First();
-                    actionsmetod.Second();
-                    actionsmetod.Trird();
+                    var rew = rand.Next(1, 100);
+
+                    if (rew<30)
+                    {
+                        actionsmetod.First();
+                    }
+
+                   else if (rew>31 & rew < 89)
+                    {
+                        actionsmetod.Second();
+                    }
+                    
+                   else if (rew > 90)
+                    { actionsmetod.Trird(); }
+                    
+                    
                 }
                 catch (Exception ex)
                 {
