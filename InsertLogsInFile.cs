@@ -11,7 +11,7 @@ namespace LoggerProject
     {
         public void WriteLogsIn(Logger logger) // нужен класс Logger
             {
-            File.WriteAllText(DateTime.Today + ".txt", Logger.Task.ToString());
+            File.WriteAllText("Logs.txt", logger.MessageRead.ToString());
             }
     }
 }

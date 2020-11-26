@@ -16,12 +16,35 @@ namespace LoggerProject
         }
         public StringBuilder MessageRead
         {
-            get;  set;
+            get; private set;
         }
 
         public static Logger Task => logger;
 
-
+        public void LogError(string message, Exception ex = null)
+        {
+            var result = WriteErrorsEnum.LogEnum.Error + message;
+            if (ex != null)
+            {
+                result += " stacktrace: " + ex.StackTrace;
+            }
+            MessageRead.AppendLine(result);
+            Console.WriteLine(result);
+        }
+        public void LogInfo(string message)
+        {
+            Log(WriteErrorsEnum.LogEnum.Info, message);
+        }
+        public void LogWarning(string message)
+        {
+            Log(WriteErrorsEnum.LogEnum.Warning, message);
+        }
+        public void Log(WriteErrorsEnum.LogEnum LevelLog, string message)
+        {
+            var result = LevelLog + "Message: " + message;
+            MessageRead.AppendLine(result);
+            Console.WriteLine(result);
+        }
 
     }
 }
