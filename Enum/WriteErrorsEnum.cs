@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace LoggerProject
 {
-    class Program
-    {
-        static void Main(string[] args)
+        public enum WriteErrorsEnum
         {
-            var start = new Starter();
-            start.Run();   
+            Error,
+            Info,
+            Warning
         }
-    }
+
 }
