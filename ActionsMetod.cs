@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace LoggerProject
 {
-    class ActionsMetod
+    public class ActionsMetod
     {
         private static Logger _Logger; 
         public ActionsMetod()
         {
-            _Logger = Logger.Task;
+           _Logger = Logger.InterfaceServise;
         }
         public void First()
         {
-            _Logger.LogInfo("\t Start method: " + nameof(First));
+            _Logger.LogInfo("Start method: " + nameof(this.First));
 
         }
         public void Second()
         {
-            _Logger.LogWarning("\t Skip logic in method: " + nameof(Second));
+            throw new BusinesExeeption("Skip logic in method: " + nameof(this.Second));
         }
         public void Trird()
         {
-            throw new Exception(" \f I broke a toilet ");
+            throw new Exception("I broke a toilet ");
         }
     }
 }

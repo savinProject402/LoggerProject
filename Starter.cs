@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LoggerProject
+﻿namespace LoggerProject
 {
-    class Starter
+    using System;
+    using LoggerProject.Services;
+    using LoggerProject.Interfaces;
+    public class Starter
     {
         private readonly ActionsMetod actionsmetod;
         private readonly Logger logger;
         public Starter()
         {
-            actionsmetod = new ActionsMetod();
-            logger = Logger.Task;
+            this.actionsmetod = new ActionsMetod();
+            this.logger = Logger.InterfaceServise;
         }
 
         public void Run()
@@ -23,30 +20,28 @@ namespace LoggerProject
             {
                 try
                 {
-                    var rew = rand.Next(1, 100);
-
-                    if (rew<30)
+                    switch (rand.Next(1,4))
                     {
-                        actionsmetod.First();
+                        case 1:
+                            this.actionsmetod.First();
+                            break;
+                        case 2:
+                            this.actionsmetod.Second();
+                            break;
+                        case 3:
+                            this.actionsmetod.Trird();
+                            break;
                     }
-
-                   else if (rew>31 & rew < 89)
-                    {
-                        actionsmetod.Second();
-                    }
-                    
-                   else if (rew > 90)
-                    { actionsmetod.Trird(); }
-                    
-                    
+                }
+                catch (BusinesExeeption busEx)
+                {
+                    this.logger.LogWarning($"Action got this custom Exception: {busEx}");
                 }
                 catch (Exception ex)
                 {
                     logger.LogError(ex.Message, ex);
                 }
             }
-            var writeLog = new InsertLogsInFile();
-            writeLog.WriteLogsIn(logger);
         }
     }
 }

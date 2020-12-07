@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace LoggerProject
 {
-    class WriteErrorsEnum
-    {
-        public enum LogEnum
+        public enum WriteErrorsEnum
         {
             Error,
             Info,
             Warning
         }
 
-    }
 }

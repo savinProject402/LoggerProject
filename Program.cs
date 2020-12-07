@@ -11,7 +11,7 @@ namespace LoggerProject
         static void Main(string[] args)
         {
             var start = new Starter();
-            start.Run();
+            start.Run();   
         }
     }
 }
